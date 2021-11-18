@@ -92,7 +92,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edittext"
-            android:hint="Escolha uma senha"
+            android:hint="Escolha uma senha de pelo menos 8 caracteres"
             android:inputType="textPassword"
             android:textSize="15sp"
             android:padding="10dp"
