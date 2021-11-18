@@ -103,7 +103,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edittext"
-            android:hint="CEP"
+            android:hint="CEP 12345-678"
             android:inputType="textPostalAddress"
             android:maxLength="9"
             android:textSize="15sp"
