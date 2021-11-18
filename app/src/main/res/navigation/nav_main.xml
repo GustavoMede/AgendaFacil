@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.agendafacil.ui.fragments.home.HomeFragment"
+        android:label="Bem vindo."
+        tools:layout="@layout/home_fragment_layout">
+        <action
+            android:id="@+id/action_homeFragment_to_professionalDataSetUpFragment"
+            app:destination="@id/professionalDataSetUpFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_clientDataSetUpFragment"
+            app:destination="@id/clientDataSetUpFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientAdressSetUpFragment"
+        android:name="com.example.agendafacil.ui.fragments.clientsignup.ClientAdressSetUpFragment"
+        android:label="Cadastro"
+        tools:layout="@layout/client_adress_setup_fragment_layout">
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="document"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/professionalDataSetUpFragment"
+        android:name="com.example.agendafacil.ui.fragments.professionalsignup.ProfessionalDataSetUpFragment"
+        android:label="Cadastro."
+        tools:layout="@layout/professional_data_setup_fragment_layout">
+        <action
+            android:id="@+id/action_professionalDataSetUpFragment_to_professionalAdressSetUpFragment"
+            app:destination="@id/professionalAdressSetUpFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientDataSetUpFragment"
+        android:name="com.example.agendafacil.ui.fragments.clientsignup.ClientDataSetUpFragment"
+        android:label="Cadastro"
+        tools:layout="@layout/client_data_setup_fragment_layout">
+        <action
+            android:id="@+id/action_clientDataSetUpFragment_to_clientAdressSetUpFragment"
+            app:destination="@id/clientAdressSetUpFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/professionalAdressSetUpFragment"
+        android:name="com.example.agendafacil.ui.fragments.professionalsignup.ProfessionalAdressSetUpFragment"
+        android:label="Cadastro"
+        tools:layout="@layout/professional_adress_setup_fragment_layout">
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="document"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+        <argument
+            android:name="weekHours"
+            app:argType="string" />
+        <argument
+            android:name="beginHour"
+            app:argType="string" />
+        <argument
+            android:name="endHour"
+            app:argType="string" />
+    </fragment>
+</navigation>
