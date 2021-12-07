@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">AgendaFacil</string>
+
+    <string name="navigation_drawer_open">
+        Open navigation drawer
+    </string>
+
+    <string name="navigation_drawer_close">
+        Close navigation drawer
+    </string>
+
+    <string-array name="locations">
+        <item>Remoto</item>
+        <item>Presencial</item>
+        <item>Híbrido</item>
+    </string-array>
+
+    <string-array name="periods">
+        <item>Tempo Integral</item>
+        <item>Meio Periodo</item>
+        <item>Contrato</item>
+        <item>Temporario</item>
+        <item>Voluntario</item>
+        <item>Estagio</item>
+    </string-array>
 </resources>

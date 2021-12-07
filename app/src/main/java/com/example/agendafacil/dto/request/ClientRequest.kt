@@ -1,13 +1,13 @@
-package com.example.agendafacil.dto
+package com.example.agendafacil.dto.request
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class ClientDTO(
+data class ClientRequest(
     val nome: String,
     val email: String,
     val cpfOuCnpj: String,
     val senha: String,
-    val endereco: AdressDTO
+    val endereco: AdressRequest
 ) : Parcelable

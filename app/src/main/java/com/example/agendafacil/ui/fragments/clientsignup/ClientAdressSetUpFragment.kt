@@ -1,9 +1,12 @@
 package com.example.agendafacil.ui.fragments.clientsignup
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -11,8 +14,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.agendafacil.R
 import com.example.agendafacil.databinding.ClientAdressSetupFragmentLayoutBinding
-import com.example.agendafacil.dto.AdressDTO
-import com.example.agendafacil.dto.ClientDTO
+import com.example.agendafacil.dto.request.AdressRequest
+import com.example.agendafacil.dto.request.ClientRequest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ClientAdressSetUpFragment : Fragment() {
@@ -40,6 +43,11 @@ class ClientAdressSetUpFragment : Fragment() {
         onObserverState()
     }
 
+    override fun onDestroyView() {
+        bind = null
+        super.onDestroyView()
+    }
+
     private fun onClickListener() {
         bind?.let {
             it.clientDataSetupFragmentSignUpBtn.setOnClickListener {
@@ -48,13 +56,13 @@ class ClientAdressSetUpFragment : Fragment() {
         }
     }
 
-    private fun toDTO(): ClientDTO {
-        return ClientDTO(
+    private fun toDTO(): ClientRequest {
+        return ClientRequest(
             args.name,
             args.email,
             args.document,
             args.password,
-            AdressDTO(
+            AdressRequest(
                 bind!!.clientDataSetupFragmentAdress.text.toString(),
                 bind!!.clientDataSetupFragmentNumber.text.toString(),
                 bind!!.clientDataSetupFragmentComplement.text.toString(),
@@ -78,6 +86,7 @@ class ClientAdressSetUpFragment : Fragment() {
 
     private fun onSuccess(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        hideKeyboardFrom(requireContext(), requireView())
         findNavController().popBackStack(R.id.homeFragment, false)
     }
 
@@ -86,6 +95,11 @@ class ClientAdressSetUpFragment : Fragment() {
     }
 
     private fun onLoading() {
+    }
+
+    fun hideKeyboardFrom(context: Context, view: View) {
+        val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
 

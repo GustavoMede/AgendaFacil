@@ -1,8 +1,8 @@
 package com.example.agendafacil.usecase.onclientsignup
 
-import com.example.agendafacil.dto.ClientDTO
+import com.example.agendafacil.dto.request.ClientRequest
 
 interface OnClientSignUpUseCase {
 
-    suspend fun onCreateAccount(clientDTO: ClientDTO)
+    suspend fun onCreateAccount(clientRequest: ClientRequest)
 }

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/service_add_fragment_beginGuideline"
+            app:layout_constraintGuide_begin="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/service_add_fragment_endGuideline"
+            app:layout_constraintGuide_end="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/service_add_fragment_textView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/service_add_fragment_endGuideline"
+            app:layout_constraintStart_toStartOf="@id/service_add_fragment_beginGuideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do que se trata o seu serviço?"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/service_add_fragment_serviceName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/service_add_fragment_endGuideline"
+            app:layout_constraintStart_toStartOf="@id/service_add_fragment_beginGuideline"
+            app:layout_constraintTop_toBottomOf="@id/service_add_fragment_textView"
+            app:layout_constraintVertical_bias="0.2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_edittext"
+            android:hint="Nome"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textSize="15sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/service_add_fragment_locationType"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            app:layout_constraintEnd_toEndOf="@id/service_add_fragment_endGuideline"
+            app:layout_constraintStart_toStartOf="@id/service_add_fragment_beginGuideline"
+            app:layout_constraintTop_toBottomOf="@id/service_add_fragment_serviceName"
+            >
+
+            <AutoCompleteTextView
+                android:id="@+id/service_add_fragment_locationsList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:text="Onde você atenderá?"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/service_add_fragment_timePeriod"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            app:layout_constraintEnd_toEndOf="@id/service_add_fragment_endGuideline"
+            app:layout_constraintStart_toStartOf="@id/service_add_fragment_beginGuideline"
+            app:layout_constraintTop_toBottomOf="@id/service_add_fragment_locationType"
+            >
+
+            <AutoCompleteTextView
+                android:id="@+id/service_add_fragment_periodList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:text="Qual será o período do atendimento?"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <EditText
+            android:id="@+id/service_add_fragment_price"
+            app:layout_constraintEnd_toEndOf="@id/service_add_fragment_endGuideline"
+            app:layout_constraintStart_toStartOf="@id/service_add_fragment_beginGuideline"
+            app:layout_constraintTop_toBottomOf="@id/service_add_fragment_timePeriod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_edittext"
+            android:hint="Valor"
+            android:inputType="numberDecimal"
+            android:padding="10dp"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/service_add_fragment_addInputBtn"
+            app:layout_constraintEnd_toEndOf="@id/service_add_fragment_endGuideline"
+            app:layout_constraintStart_toStartOf="@id/service_add_fragment_beginGuideline"
+            app:layout_constraintTop_toBottomOf="@id/service_add_fragment_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="#8E0E00"
+            android:padding="15dp"
+            android:text="Adicionar Insumo"
+            android:textColor="#1F1C18" />
+
+        <TextView
+            android:id="@+id/service_add_fragment_inputsTextView"
+            app:layout_constraintTop_toBottomOf="@id/service_add_fragment_addInputBtn"
+            app:layout_constraintEnd_toEndOf="@id/service_add_fragment_endGuideline"
+            app:layout_constraintStart_toStartOf="@id/service_add_fragment_beginGuideline"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insumos necessários"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/service_add_fragment_recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/input_item_layout"
+            app:layout_constraintTop_toBottomOf="@id/service_add_fragment_inputsTextView"
+            app:layout_constraintStart_toStartOf="@id/service_add_fragment_beginGuideline"
+            app:layout_constraintEnd_toEndOf="@id/service_add_fragment_endGuideline"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/service_add_fragment_nextBtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/service_add_fragment_endGuideline"
+            app:layout_constraintStart_toStartOf="@id/service_add_fragment_beginGuideline"
+            app:layout_constraintTop_toBottomOf="@id/service_add_fragment_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="#8E0E00"
+            android:padding="15dp"
+            android:text="Adicionar Serviço"
+            android:textColor="#1F1C18" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

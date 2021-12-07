@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="service"
+            type="com.example.agendafacil.dto.response.ServiceResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/schedule_service_beginGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="30dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/schedule_service_endGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="30dp" />
+
+        <TextView
+            android:id="@+id/schedule_service_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deseja agendar o serviço"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/schedule_service_beginGuideline"
+            app:layout_constraintEnd_toEndOf="@id/schedule_service_endGuideline"/>
+
+        <TextView
+            android:id="@+id/schedule_service_serviceName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:serviceName="@{service.nome}"
+            tools:text="Nome do servico"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintTop_toBottomOf="@id/schedule_service_textView"
+            app:layout_constraintStart_toStartOf="@id/schedule_service_beginGuideline"
+            app:layout_constraintEnd_toEndOf="@id/schedule_service_endGuideline"/>
+
+        <EditText
+            android:id="@+id/schedule_service_scheduleHour"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/schedule_service_endGuideline"
+            app:layout_constraintStart_toStartOf="@id/schedule_service_beginGuideline"
+            app:layout_constraintTop_toBottomOf="@id/schedule_service_serviceName"
+            app:layout_constraintVertical_bias="0.2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_edittext"
+            android:hint="Hora de atendimento"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/schedule_service_continueBtn"
+            app:layout_constraintEnd_toEndOf="@id/schedule_service_endGuideline"
+            app:layout_constraintStart_toStartOf="@id/schedule_service_beginGuideline"
+            app:layout_constraintTop_toBottomOf="@id/schedule_service_scheduleHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="#8E0E00"
+            android:padding="15dp"
+            android:text="Realizar agendamento"
+            android:textColor="#1F1C18" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

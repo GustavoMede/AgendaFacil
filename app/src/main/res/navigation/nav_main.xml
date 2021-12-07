@@ -24,6 +24,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/clientAdressSetUpFragment"
@@ -94,5 +101,74 @@
         <argument
             android:name="endHour"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceListFragment"
+        android:name="com.example.agendafacil.ui.fragments.servicesList.ServiceListFragment"
+        android:label="Serviços disponíveis"
+        tools:layout="@layout/service_list_fragment_layout">
+        <argument
+            android:name="user"
+            app:argType="com.example.agendafacil.dto.response.LoginResponse" />
+        <action
+            android:id="@+id/action_serviceListFragment_to_serviceAddFragment"
+            app:destination="@id/serviceAddFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_serviceListFragment_to_scheduleServiceFragment"
+            app:destination="@id/scheduleServiceFragment" />
+        <action
+            android:id="@+id/action_serviceListFragment_to_scheduleListFragment"
+            app:destination="@id/scheduleListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceAddFragment"
+        android:name="com.example.agendafacil.ui.fragments.serviceadd.ServiceAddFragment"
+        android:label="Adicione seu serviço."
+        tools:layout="@layout/service_add_fragment_layout">
+        <argument
+            android:name="professionalId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_serviceAddFragment_to_serviceInputsAddFragment"
+            app:destination="@id/serviceInputsAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.agendafacil.ui.fragments.login.LoginFragment"
+        android:label="Login."
+        tools:layout="@layout/login_fragment_layout">
+        <action
+            android:id="@+id/action_loginFragment_to_serviceListFragment"
+            app:destination="@id/serviceListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceInputsAddFragment"
+        android:name="com.example.agendafacil.ui.fragments.inputsadd.ServiceInputsAddFragment"
+        android:label="Adicione os insumos."
+        tools:layout="@layout/service_inputs_add_fragment_layout"/>
+    <fragment
+        android:id="@+id/scheduleServiceFragment"
+        android:name="com.example.agendafacil.ui.fragments.scheduleservice.ScheduleServiceFragment"
+        android:label="Qual o horário ideal?"
+        tools:layout="@layout/schedule_service_fragment_layout">
+        <argument
+            android:name="service"
+            app:argType="com.example.agendafacil.dto.response.ServiceResponse" />
+        <argument
+            android:name="clientId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/scheduleListFragment"
+        android:name="com.example.agendafacil.ui.fragments.scheduleslist.ScheduleListFragment"
+        android:label="Serviços agendados."
+        tools:layout="@layout/schedule_list_fragment_layout">
+        <argument
+            android:name="clienteId"
+            app:argType="integer" />
     </fragment>
 </navigation>

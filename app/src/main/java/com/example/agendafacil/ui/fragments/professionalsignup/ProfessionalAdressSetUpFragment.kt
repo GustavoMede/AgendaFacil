@@ -1,20 +1,28 @@
 package com.example.agendafacil.ui.fragments.professionalsignup
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.agendafacil.R
 import com.example.agendafacil.databinding.ProfessionalAdressSetupFragmentLayoutBinding
-import com.example.agendafacil.dto.AdressDTO
-import com.example.agendafacil.dto.ProfessionalDTO
-import com.example.agendafacil.dto.TimeAvailabilityDTO
+import com.example.agendafacil.dto.request.AdressRequest
+import com.example.agendafacil.dto.request.ProfessionalRequest
+import com.example.agendafacil.dto.request.TimeAvailabilityRequest
+import com.example.agendafacil.dto.response.ProfessionalResponse
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import android.app.Activity
+
+
+
 
 class ProfessionalAdressSetUpFragment: Fragment() {
 
@@ -40,6 +48,11 @@ class ProfessionalAdressSetUpFragment: Fragment() {
         onObserverState()
     }
 
+    override fun onDestroyView() {
+        bind = null
+        super.onDestroyView()
+    }
+
     private fun onClickListener() {
         bind?.let {
             it.professionalDataSetupFragmentSignUpBtn.setOnClickListener {
@@ -48,13 +61,13 @@ class ProfessionalAdressSetUpFragment: Fragment() {
         }
     }
 
-    private fun toDTO(): ProfessionalDTO {
-        return ProfessionalDTO(
+    private fun toDTO(): ProfessionalRequest {
+        return ProfessionalRequest(
             args.name,
             args.email,
             args.document,
             args.password,
-            AdressDTO(
+            AdressRequest(
                 bind!!.professionalDataSetupFragmentAdress.text.toString(),
                 bind!!.professionalDataSetupFragmentNumber.text.toString(),
                 bind!!.professionalDataSetupFragmentComplement.text.toString(),
@@ -62,7 +75,7 @@ class ProfessionalAdressSetUpFragment: Fragment() {
                 bind!!.professionalDataSetupFragmentCep.text.toString(),
                 bind!!.professionalDataSetupFragmentCity.text.toString(),
                 bind!!.professionalDataSetupFragmentState.text.toString()),
-            TimeAvailabilityDTO(
+            TimeAvailabilityRequest(
                 args.weekHours,
                 args.beginHour,
                 args.endHour
@@ -82,6 +95,7 @@ class ProfessionalAdressSetUpFragment: Fragment() {
 
     private fun onSuccess(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        hideKeyboardFrom(requireContext(), requireView())
         findNavController().popBackStack(R.id.homeFragment, false)
     }
 
@@ -90,5 +104,10 @@ class ProfessionalAdressSetUpFragment: Fragment() {
     }
 
     private fun onLoading() {
+    }
+
+    fun hideKeyboardFrom(context: Context, view: View) {
+        val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

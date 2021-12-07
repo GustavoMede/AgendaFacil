@@ -1,8 +1,9 @@
 package com.example.agendafacil.usecase.onprofessionalsignup
 
-import com.example.agendafacil.dto.ProfessionalDTO
+import com.example.agendafacil.dto.request.ProfessionalRequest
+import com.example.agendafacil.dto.response.ProfessionalResponse
 
 interface OnProfessionalSignUpUseCase {
 
-    suspend fun onCreateAccount(professionalDTO: ProfessionalDTO)
+    suspend fun onCreateAccount(professionalRequest: ProfessionalRequest)
 }

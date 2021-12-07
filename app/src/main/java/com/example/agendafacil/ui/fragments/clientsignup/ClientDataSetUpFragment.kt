@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.agendafacil.databinding.ClientDataSetupFragmentLayoutBinding
-import com.example.agendafacil.dto.ClientDTO
 
 class ClientDataSetUpFragment : Fragment() {
 
@@ -26,6 +25,11 @@ class ClientDataSetUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onClickListener()
+    }
+
+    override fun onDestroyView() {
+        bind = null
+        super.onDestroyView()
     }
 
     private fun onClickListener() {

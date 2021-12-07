@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_service_add" android:title="Adicionar serviço" />
+
+    <item android:id="@+id/nav_schedule_list" android:title="Lista de agendamentos" />
+
+    <item android:id="@+id/nav_sign_out" android:title="Log out" />
+
+</menu>

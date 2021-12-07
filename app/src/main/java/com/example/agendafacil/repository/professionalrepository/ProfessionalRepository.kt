@@ -1,8 +1,9 @@
 package com.example.agendafacil.repository.professionalrepository
 
-import com.example.agendafacil.dto.ProfessionalDTO
+import com.example.agendafacil.dto.request.ProfessionalRequest
+import com.example.agendafacil.dto.response.ProfessionalResponse
 
 interface ProfessionalRepository {
 
-    suspend fun onCreateAccount(professionalDTO: ProfessionalDTO)
+    suspend fun onCreateAccount(professionalRequest: ProfessionalRequest)
 }

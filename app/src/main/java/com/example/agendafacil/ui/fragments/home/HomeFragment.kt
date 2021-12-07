@@ -7,8 +7,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.agendafacil.databinding.HomeFragmentLayoutBinding
+import android.view.animation.AlphaAnimation
+import android.view.animation.AnimationUtils
+import androidx.core.view.isGone
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
+import androidx.drawerlayout.widget.DrawerLayout
+import com.example.agendafacil.R
+import androidx.appcompat.app.AppCompatActivity
+import com.example.agendafacil.ui.MainActivity
 
-class HomeFragment: Fragment() {
+
+class HomeFragment : Fragment() {
 
     private var bind: HomeFragmentLayoutBinding? = null
 
@@ -27,6 +37,11 @@ class HomeFragment: Fragment() {
         onClickListener()
     }
 
+    override fun onDestroyView() {
+        bind = null
+        super.onDestroyView()
+    }
+
     private fun onClickListener() {
         bind?.let {
             it.homeActivityCadastroClienteBtn.setOnClickListener {
@@ -35,7 +50,9 @@ class HomeFragment: Fragment() {
             it.homeActivityCadastroProfissionalBtn.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToProfessionalDataSetUpFragment())
             }
+            it.homeActivityLoginBtn.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToLoginFragment())
+            }
         }
     }
-
 }

@@ -27,6 +27,11 @@ class ProfessionalDataSetUpFragment: Fragment() {
         onClickListener()
     }
 
+    override fun onDestroyView() {
+        bind = null
+        super.onDestroyView()
+    }
+
     private fun onClickListener() {
         bind?.let {
             it.professionalDataSetupNextBtn.setOnClickListener {

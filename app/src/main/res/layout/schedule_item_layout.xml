@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="schedule"
+            type="com.example.agendafacil.dto.response.ScheduleResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:layout_margin="7dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/service_item_guidelineBegin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="30dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/service_item_guidelineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="30dp" />
+
+        <TextView
+            android:id="@+id/service_item_serviceName"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            tools:text="NOME DO SERVICO"
+            android:layout_marginTop="16dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:serviceName="@{schedule.servico.nome}"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="@id/service_item_guidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/service_item_guidelineBegin"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_foreground" />
+
+        <View
+            android:id="@+id/service_item_division"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@android:color/holo_red_light"
+            app:layout_constraintBottom_toTopOf="@id/service_item_value"
+            app:layout_constraintTop_toBottomOf="@id/service_item_serviceName" />
+
+        <TextView
+            android:id="@+id/service_item_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="20sp"
+            app:serviceValue="@{schedule.servico.valor}"
+            app:layout_constraintStart_toStartOf="@id/service_item_guidelineBegin"
+            app:layout_constraintTop_toBottomOf="@id/service_item_division"
+            tools:text="VALOR DO SERVICO" />
+
+        <TextView
+            android:id="@+id/service_item_scheduledHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="20sp"
+            android:gravity="end"
+            app:scheduleHour="@{schedule.horaAtendimento}"
+            app:layout_constraintStart_toEndOf="@id/service_item_value"
+            app:layout_constraintEnd_toEndOf="@id/service_item_guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@id/service_item_division"
+            tools:text="HORÁRIO" />
+
+        <TextView
+            android:id="@+id/service_item_professionalName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:professionalName="@{schedule.servico.professional.nome}"
+            app:layout_constraintStart_toStartOf="@id/service_item_guidelineBegin"
+            app:layout_constraintEnd_toEndOf="@id/service_item_guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@id/service_item_value"
+            tools:text="NOME DO PROFISSIONAL" />
+
+        <TextView
+            android:id="@+id/service_item_professionalEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:professionalName="@{schedule.servico.professional.email}"
+            app:layout_constraintStart_toStartOf="@id/service_item_guidelineBegin"
+            app:layout_constraintEnd_toEndOf="@id/service_item_guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@id/service_item_professionalName"
+            tools:text="EMAIL DO PROFISSIONAL" />
+
+        <TextView
+            android:id="@+id/service_item_localType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:local="@{schedule.servico.tipoLocal}"
+            app:layout_constraintStart_toStartOf="@id/service_item_guidelineBegin"
+            app:layout_constraintEnd_toStartOf="@id/service_item_jobType"
+            app:layout_constraintTop_toBottomOf="@id/service_item_professionalEmail"
+            tools:text="LOCAL" />
+
+        <TextView
+            android:id="@+id/service_item_jobType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="end"
+            app:jobType="@{schedule.servico.tipoTrabalho}"
+            app:layout_constraintTop_toBottomOf="@id/service_item_professionalEmail"
+            app:layout_constraintStart_toEndOf="@id/service_item_localType"
+            app:layout_constraintEnd_toEndOf="@id/service_item_guidelineEnd"
+            tools:text="TIPO TRABALHO" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

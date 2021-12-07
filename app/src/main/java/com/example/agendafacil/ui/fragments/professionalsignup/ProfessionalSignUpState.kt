@@ -1,7 +1,5 @@
 package com.example.agendafacil.ui.fragments.professionalsignup
 
-import com.example.agendafacil.ui.fragments.clientsignup.ClientSignUpState
-
 sealed class ProfessionalSignUpState {
 
     object IDLE: ProfessionalSignUpState()
